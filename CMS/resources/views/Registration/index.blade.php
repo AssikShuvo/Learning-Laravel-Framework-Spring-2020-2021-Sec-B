@@ -7,6 +7,7 @@
 
         <form method="post">
             <fieldset>
+            @csrf
                 <legend>Registration</legend>
                     <table>
 
@@ -68,6 +69,11 @@
                     </table>
             </fieldset>
         </form>
+
+        @foreach($errors->all() as $err)
+            {{ $err }} <br>
+        @endforeach
+
 
     </body>
 </html>
