@@ -13,12 +13,12 @@
 
                         <tr>
                             <td>Full Name</td>
-                            <td><input type="text" name="fullname"></td>
+                            <td><input type="text" name="full_name"></td>
                         </tr>
 
                         <tr>
                             <td>Username</td>
-                            <td><input type="text" name="username"></td>
+                            <td><input type="text" name="user_name"></td>
                         </tr>
 
                         <tr>
@@ -43,12 +43,12 @@
 
                         <tr>
                             <td>Company Name</td>
-                            <td><input type="text" name="cname"></td>
+                            <td><input type="text" name="company_name"></td>
                         </tr>
 
                         <tr>
                             <td>Phone Number</td>
-                            <td><input type="text" name="pnumber"></td>
+                            <td><input type="text" name="phone"></td>
                         </tr>
 
                         <tr>
