@@ -25,12 +25,12 @@ class RegistrationController extends Controller
             'cname' => 'required | min:3 | max:20',
             'pnumber' => 'required | min:11 | max:15',
             'city' => 'required | min:3 | max:20',
-            'country' => 'required | min:3 | max:20',
+            'country' => 'required | min:3 | max:20'
 
         ]);
 
         if($validation->fails()){
-            return view('Registration.index')->with('errors', $validation->errors());
+            return redirect()->route('Registration.registration')->with('errors', $validation->errors());
         }
 
         $cus = new customer();
@@ -44,6 +44,6 @@ class RegistrationController extends Controller
         $cus->country = $req->country;
        
 
-        return view('Login.index');
+        return redirect()->route('Login.login');
     }
 }
