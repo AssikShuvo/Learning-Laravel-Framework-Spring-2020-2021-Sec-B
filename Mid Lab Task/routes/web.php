@@ -22,6 +22,16 @@ Route::group(['prefix' => 'system/sales'], function(){
         
 });
 
+Route::group(['prefix' => 'system/product_management'], function(){
+
+    Route::get('/physical_store', [SMPController::class, 'physical_store']);
+        
+    Route::get('/social_media', [SMPController::class, 'social_media']);
+        
+    Route::get('/ecommerce', [SMPController::class, 'ecommerce']);
+        
+});
+
 
 
 
