@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SMPController;
+
 use App\Http\Controllers\ProductController;
 
 
@@ -30,13 +31,20 @@ Route::group(['prefix' => 'system/product_management'], function(){
     Route::get('/upcoming_products', [ProductController::class, 'upcoming_products']);
         
     Route::get('/add_product', [ProductController::class, 'add_product']);
+
+    Route::get('/existing_products/edit/{id}', [ProductController::class, 'product_edit'])->name("Product.edit");
+
+    Route::post('/existing_products/edit/{id}', [ProductController::class, 'product_update']);
+
+    Route::get('/existing_products/delete/{id}', [ProductController::class, 'delete']);
+
+    Route::post('/existing_products/delete/{id}', [ProductController::class, 'destroy']);
+
+    Route::get('/product/{product_id}/vendor_details/{vendor_id}', [ProductController::class, 'details']);
         
 });
 
-Route::get('/system/product_management/existing_products/edit/{id}', [ProductControllerr::class, 'edit']);
-Route::post('/system/product_management/existing_products/edit/{id}', [ProductController::class, 'update']);
 
-Route::get('/system/product_management/existing_products/delete/{id}', [ProductController::class, 'delete']);
-Route::post('/system/product_management/existing_products/delete/{id}', [ProductController::class, 'destroy']);
 
-Route::get('/system/product_management/product/{product_id}/vendor_details/{vendor_id}', [ProductController::class, 'details']);
+
+

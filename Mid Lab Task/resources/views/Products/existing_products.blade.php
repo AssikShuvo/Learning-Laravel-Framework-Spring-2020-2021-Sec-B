@@ -8,6 +8,10 @@
 </head>
 <body>
 
+    @if(session()->has('message'))
+        {{ session()->get('message') }}
+    @endif
+
     <table border="2">
         <tr>
             <td>ID</td>
@@ -29,9 +33,9 @@
             <td> {{ $product_list[$i]['status'] }} </td>
             <td> {{ $product_list[$i]['last_updated'] }} </td>
 
-            <td><a href="/home/edit/{{ $product_list[$i]['id'] }}">Edit</a></td>
-            <td><a href="/home/delete/{{ $product_list[$i]['id'] }}">Delete</a></td>
-            <td><a href="/home/details/{{ $product_list[$i]['id'] }}">Details</a></td>
+            <td><a href="/system/product_management/existing_products/edit/{{ $product_list[$i]['id'] }}">Edit</a></td>
+            <td><a href="/system/product_management/existing_products/delete/{{ $product_list[$i]['id'] }}">Delete</a></td>
+            <td><a href="/system/product_management/existing_products/details/{{ $product_list[$i]['id'] }}">Details</a></td>
         </tr>
 
         @endfor
