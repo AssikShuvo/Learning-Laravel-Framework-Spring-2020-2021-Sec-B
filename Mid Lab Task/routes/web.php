@@ -36,9 +36,9 @@ Route::group(['prefix' => 'system/product_management'], function(){
 
     Route::post('/existing_products/edit/{id}', [ProductController::class, 'product_update']);
 
-    Route::get('/existing_products/delete/{id}', [ProductController::class, 'delete']);
+    Route::get('/existing_products/delete/{id}', [ProductController::class, 'product_delete']);
 
-    Route::post('/existing_products/delete/{id}', [ProductController::class, 'destroy']);
+    Route::post('/existing_products/delete/{id}', [ProductController::class, 'product_destroy']);
 
     Route::get('/product/{product_id}/vendor_details/{vendor_id}', [ProductController::class, 'details']);
         

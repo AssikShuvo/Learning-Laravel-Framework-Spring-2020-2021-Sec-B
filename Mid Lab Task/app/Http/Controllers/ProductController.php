@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function product_list(){  
                 
-        $product_list = product::where('status', '=' , 'existing')->get();
+        $product_list = product::where('status', '=' , 'existing')->paginate(20);                                
 
         return view('Products.existing_products')->with('product_list', $product_list);
     }
@@ -49,6 +49,24 @@ class ProductController extends Controller
 
         return Redirect('/system/product_management/existing_products')->with('message', 'Completed Successfully.');
     }
+
+    public function product_delete($id){
+
+        $product_list = product::find($id);
+
+        return view('Products.delete')->with('product_list', $product_list);
+    }
+
+    public function product_destroy($id){
+        if(product::destroy($id)){
+            return redirect('/system/product_management/existing_products');
+        }
+        else{
+            return redirect('/system/product_management/existing_products'.$id);
+        }        
+    }
+
+
 
     public function upcoming_products(){
         return view('Products.upcoming_products');

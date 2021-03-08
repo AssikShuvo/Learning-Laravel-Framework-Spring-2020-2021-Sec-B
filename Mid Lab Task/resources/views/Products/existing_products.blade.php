@@ -43,5 +43,15 @@
 
     </table>
 
+    <span>
+        {{$product_list->links()}}
+    </span>
+
+    <style>
+        .w-20{
+            display: none;
+        }
+    </style>
+
 </body>
 </html>
