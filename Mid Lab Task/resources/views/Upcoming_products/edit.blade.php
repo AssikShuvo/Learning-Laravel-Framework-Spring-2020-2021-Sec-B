@@ -59,7 +59,7 @@
 
                         <tr>
                             <td></td>
-                            <td><a href="/system/product_management/existing_products">Back</a></td>
+                            <td><a href="/system/product_management/upcoming_products">Back</a></td>
                         </tr>
 
                     </table>
@@ -71,5 +71,4 @@
         @endforeach
 
 </body>
-
 </html>

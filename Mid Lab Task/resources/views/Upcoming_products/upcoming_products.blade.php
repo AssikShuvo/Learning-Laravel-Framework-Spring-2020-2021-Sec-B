@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Existing Products</title>
+    <title>Upcoming Products</title>
 </head>
 <body>
 
@@ -33,8 +33,8 @@
             <td> {{ $product_list[$i]['status'] }} </td>
             <td> {{ $product_list[$i]['last_updated'] }} </td>
 
-            <td><a href="/system/product_management/existing_products/edit/{{ $product_list[$i]['id'] }}">Edit</a></td>
-            <td><a href="/system/product_management/existing_products/delete/{{ $product_list[$i]['id'] }}">Delete</a></td>
+            <td><a href="/system/product_management/upcoming_products/edit/{{ $product_list[$i]['id'] }}">Edit</a></td>
+            <td><a href="/system/product_management/upcoming_products/delete/{{ $product_list[$i]['id'] }}">Delete</a></td>
             <td><a href="/system/product_management/product/{product_id}/vendor_details/{vendor_id}/{{ $product_list[$i]['id'] }}">Details</a></td>
         </tr>
         

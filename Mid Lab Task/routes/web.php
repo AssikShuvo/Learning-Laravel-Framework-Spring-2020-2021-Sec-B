@@ -24,13 +24,17 @@ Route::group(['prefix' => 'system/sales'], function(){
         
 });
 
+Route::get('/system/product_management', [ProductController::class, 'buttons']);
+
 Route::group(['prefix' => 'system/product_management'], function(){
 
     Route::get('/existing_products', [ProductController::class, 'product_list']);
         
-    Route::get('/upcoming_products', [ProductController::class, 'upcoming_products']);
+    
         
     Route::get('/add_product', [ProductController::class, 'add_product']);
+
+    Route::post('/add_product', [ProductController::class, 'store_product']);
 
     Route::get('/existing_products/edit/{id}', [ProductController::class, 'product_edit'])->name("Product.edit");
 
@@ -41,7 +45,14 @@ Route::group(['prefix' => 'system/product_management'], function(){
     Route::post('/existing_products/delete/{id}', [ProductController::class, 'product_destroy']);
 
     Route::get('/product/{product_id}/vendor_details/{vendor_id}', [ProductController::class, 'details']);
-        
+
+    ////////////////////////////// Upcoming Products //////////////////////////////
+
+    Route::get('/upcoming_products', [ProductController::class, 'upcoming_products']);
+
+    Route::get('/upcoming_products/edit/{id}', [ProductController::class, 'upcoming_product_edit'])->name("Upcoming_Products.edit");
+    
+    Route::post('/upcoming_products/edit/{id}', [ProductController::class, 'upcoming_product_update'])->name("Upcoming_Products.edit");
 });
 
 

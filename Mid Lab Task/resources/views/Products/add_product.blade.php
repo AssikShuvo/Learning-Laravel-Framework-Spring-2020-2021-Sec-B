@@ -8,58 +8,60 @@
 </head>
 <body>
 
-    <h3>Edit Product</h3>
+    <h3>Add Product</h3>
 
     <form method="post">
     @csrf
             <fieldset>
-                <legend>Edit Product</legend>
+                <legend>Add Product</legend>
                     <table>
 
                         <tr>
                             <td>Product Name</td>
-                            <td><input type="text" name="product_name" value="{{ $product_list['product_name'] }}"></td>
+                            <td><input type="text" name="product_name"></td>
                         </tr>
 
                         <tr>
                             <td>Category</td>
                             <td>
                                 <select name="category">
-                                    <option value="Grocery" @if( $product_list["category"] == "Grocery" ) selected @endif>Grocery</option>
-                                    <option value="Medical" @if( $product_list["category"] == "Medical" ) selected @endif>Medical</option>
-                                    <option value="Stationary" @if( $product_list["category"] == "Stationary" ) selected @endif>Stationary</option>
+                                    <option></option>
+                                    <option value="Grocery">Grocery</option>
+                                    <option value="Medical">Medical</option>
+                                    <option value="Stationary">Stationary</option>
                                 </select>
                             </td>
                         </tr>
 
                         <tr>
                             <td>Unit Price</td>
-                            <td><input type="text" name="unit_price" value="{{ $product_list['unit_price'] }}"></td>
+                            <td><input type="text" name="unit_price"></td>
                         </tr>
 
                         <tr>
                             <td>Status</td>
                             <td>
                                 <select name="status">
-                                    <option value="Existing" @if( $product_list["status"] == "Existing" ) selected @endif>Existing</option>
-                                    <option value="Upcoming" @if( $product_list["status"] == "Upcoming" ) selected @endif>Upcoming</option>
+                                    <option></option>
+                                    <option value="Existing">Existing</option>
+                                    <option value="Upcoming">Upcoming</option>
                                 </select>
                             </td>
                         </tr>
 
                         <tr>
-                            <td>Last Updated</td>
-                            <td><input type="date" name="last_updated" value="<?php echo date('Y-m-d'); ?>"></td>
+                            <td>Added</td>
+                            <td><input type="text" name="last_updated" id="datePickerId" onfocus="(this.type='date')" onfocusout="(this.type='text')"></td>
                         </tr>
 
                         <tr>
                             <td></td>
-                            <td><input type="submit" name="submit" value="Update Product"></td>                            
+                            <td><input type="submit" name="submit" value="Add"></td>
                         </tr>
 
                         <tr>
                             <td></td>
-                            <td><a href="/system/product_management/existing_products">Back</a></td>
+                            <td><a href="/system/product_management">Back</a></td>
                         </tr>
 
                     </table>
@@ -70,6 +72,11 @@
             {{ $err }} <br>
         @endforeach
 
-</body>
+        <script>
 
+            datePickerId.min = new Date().toISOString().split("T")[0];
+
+        </script>
+
+</body>
 </html>
