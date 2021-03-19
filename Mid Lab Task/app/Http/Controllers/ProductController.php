@@ -145,5 +145,21 @@ class ProductController extends Controller
         return Redirect('/system/product_management/upcoming_products')->with('message', 'Completed Successfully.');
     }
 
+    public function upcoming_product_delete($id){
+
+        $product_list = product::find($id);
+
+        return view('Upcoming_Products.delete')->with('product_list', $product_list);
+    }
+
+    public function upcoming_product_destroy($id){
+        if(product::destroy($id)){
+            return redirect('/system/product_management/upcoming_products');
+        }
+        else{
+            return redirect('/system/product_management/upcoming_products'.$id);
+        }        
+    }
+
 
 }

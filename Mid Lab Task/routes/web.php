@@ -53,6 +53,10 @@ Route::group(['prefix' => 'system/product_management'], function(){
     Route::get('/upcoming_products/edit/{id}', [ProductController::class, 'upcoming_product_edit'])->name("Upcoming_Products.edit");
     
     Route::post('/upcoming_products/edit/{id}', [ProductController::class, 'upcoming_product_update'])->name("Upcoming_Products.edit");
+
+    Route::get('/upcoming_products/delete/{id}', [ProductController::class, 'upcoming_product_delete']);
+
+    Route::post('/upcoming_products/delete/{id}', [ProductController::class, 'upcoming_product_destroy']);
 });
 
 
